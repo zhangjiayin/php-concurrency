@@ -1,0 +1,25 @@
+$c = new Concurrency();
+
+$tmp = new ConcurrencyRequest();
+$tmp->url = "http://loceeealhost/";
+$r[] = $tmp;
+
+
+$tmp = new ConcurrencyRequest();
+$tmp->url = "http://www.baidu.com/";
+$r[] = $tmp;
+
+$tmp = new ConcurrencyRequest();
+$tmp->url = "http://www.google.com/";
+$r[] = $tmp;
+
+$tmp = new ConcurrencyRequest();
+$tmp->url = "http://www.taobao.com/";
+$r[] = $tmp;
+
+foreach($r as $request) {
+    $c->addRequest($request);
+}
+
+$c->request();
+var_export($c);
